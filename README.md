@@ -12,22 +12,30 @@ This module is a **derivative work** of the Bitfocus Companion module
 
 It is not a drop-in replacement for the official `generic-artnet` module. It is maintained as a separate module (`lamp-module`) with lamp-oriented configuration and actions on top of the ArtNet send / fade foundation from upstream.
 
-Upstream project: https://github.com/bitfocus/companion-module-generic-artnet
+Upstream project: [https://github.com/bitfocus/companion-module-generic-artnet](https://github.com/bitfocus/companion-module-generic-artnet)
 
-Comparison below is against the **current upstream repository** (not an older local snapshot).
+
+
+Comparison below is against the **current upstream repository**.
 
 ## Changes relative to [generic-artnet](https://github.com/bitfocus/companion-module-generic-artnet)
 
+
+
 ### Identity / packaging
 
-| | Upstream `generic-artnet` | This module (`v0.0.1`) |
-|--|--|--|
-| Module id | `generic-artnet` | `lamp-module` |
-| Shortname | `artnet` | `lamp-module` |
-| Products | `Art-Net` | `LAMPMODULE` |
-| `legacyIds` | `["artnet"]` | `[]` (new module; no migration of official ArtNet instances) |
-| Repository / maintainers | Bitfocus | This fork’s repo and maintainers |
-| Docs | Minimal README + HELP for raw ArtNet actions | README attribution, change list, lamp-oriented HELP |
+
+|                          | Upstream `generic-artnet`                    | This module (`v0.0.1`)                                       |
+| ------------------------ | -------------------------------------------- | ------------------------------------------------------------ |
+| Module id                | `generic-artnet`                             | `lamp-module`                                                |
+| Shortname                | `artnet`                                     | `lamp-module`                                                |
+| Products                 | `Art-Net`                                    | `LAMP MODULE`                                                |
+| `legacyIds`              | `["artnet"]`                                 | `[]` (new module; no migration of official ArtNet instances) |
+| Repository / maintainers | Bitfocus                                     | This fork’s repo and maintainers                             |
+| Docs                     | Minimal README + HELP for raw ArtNet actions | README attribution, change list, lamp-oriented HELP          |
+
+
+
 
 ### Configuration
 
@@ -40,6 +48,8 @@ This module adds:
 - Per channel: name, DMX address, default value
 - Config form updates when lamp/channel counts change without restarting Companion
 - Action/feedback definitions rebuild on config save (so lamp dropdowns stay in sync without restart)
+
+
 
 ### Actions
 
@@ -56,6 +66,8 @@ This module adds:
 - **Set lamp channel value** — select configured lamp → channel → value; resolves the DMX address from config
 - **Apply lamp defaults** — write all configured lamp channel defaults into the DMX buffer and send
 
+
+
 ### Defaults
 
 Upstream has no lamp defaults.
@@ -65,6 +77,8 @@ This module:
 - Applies lamp channel defaults **once** when the instance starts
 - Does **not** reset live DMX values on every config save
 - Re-applies on demand via **Apply lamp defaults**
+
+
 
 ### Feedbacks
 
@@ -80,12 +94,16 @@ This module adds **Dmx channel state** (boolean style when a DMX channel equals 
 - **Round and clamp** fade steps to integer DMX 0–255 (upstream writes floats into the buffer)
 - Safer instance destroy when transitions were never created
 
+
+
 ### Unchanged from upstream (core ArtNet behaviour)
 
 - 512-channel DMX buffer and ArtNet client send to host / universe
 - Linear fades via the transitions tick engine
 - Slow poll when no fades are running; fast tick during fades
 - Config upgrade script (`host_dd` → `host`)
+
+
 
 ### Note on dependencies
 

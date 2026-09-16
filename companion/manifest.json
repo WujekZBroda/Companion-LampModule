@@ -20,6 +20,6 @@
 		"entrypoint": "../lib/main.js"
 	},
 	"manufacturer": "Generic",
-	"products": ["LAMPMODULE"],
+	"products": ["LAMP MODULE"],
 	"keywords": ["Protocol", "Lighting", "Generic", "DMX", "LAMP", "ArtNet"]
 }
