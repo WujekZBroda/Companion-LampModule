@@ -2,18 +2,17 @@
 	"id": "lamp-module",
 	"name": "lamp-module",
 	"shortname": "lamp-module",
-	"description": "DMX lamp module for Companion",
-	"version": "0.0.0",
+	"description": "DMX lamp module for Companion (based on generic-artnet)",
+	"version": "0.0.1",
 	"license": "MIT",
-	"repository": "git+https://github.com/bitfocus/companion-module-generic-artnet.git",
-	"bugs": "https://github.com/bitfocus/companion-module-generic-artnet/issues",
+	"repository": "git+https://github.com/WujekZBroda/Companion-LampModule.git",
+	"bugs": "https://github.com/WujekZBroda/Companion-LampModule/issues",
 	"maintainers": [
 		{
-			"name": "Håkon Nessjøen",
-			"email": "haakon@bitfocus.io"
+			"name": "Piotr Grygo"
 		}
 	],
-	"legacyIds": ["artnet"],
+	"legacyIds": [],
 	"runtime": {
 		"type": "node18",
 		"api": "nodejs-ipc",
@@ -21,6 +20,6 @@
 		"entrypoint": "../lib/main.js"
 	},
 	"manufacturer": "Generic",
-	"products": ["LAMP MODULE"],
-	"keywords": ["Protocol", "Lighting", "Generic", "DMX", "LAMP", "PIOTR"]
+	"products": ["LAMPMODULE"],
+	"keywords": ["Protocol", "Lighting", "Generic", "DMX", "LAMP", "ArtNet"]
 }
