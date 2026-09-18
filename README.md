@@ -53,20 +53,15 @@ This module adds:
 
 ### Actions
 
-**Kept from upstream (same purpose):**
+**From upstream (merged / updated):**
 
-- Set Value
-- Set Value by Custom Variable
-- Set Complex Value
-- Offset Value
-- Offset Value by Custom Variable
+- **Set Value**, **Set Complex Value**, **Offset Value** — same roles as upstream, but number fields are text inputs with `useVariables: { local: true }` (custom + local variables / expressions; Companion v5). Separate “by custom variable” actions were removed.
 
 **Added:**
 
-- **Set lamp channel value** — select configured lamp → channel → value; resolves the DMX address from config
+- **Set Value by lamp channel** — select configured lamp → channel → value (optional fade)
+- **Offset Value by Channel Name** — pick a named channel from a list, apply offset
 - **Apply lamp defaults** — write all configured lamp channel defaults into the DMX buffer and send
-
-
 
 ### Defaults
 
@@ -78,13 +73,14 @@ This module:
 - Does **not** reset live DMX values on every config save
 - Re-applies on demand via **Apply lamp defaults**
 
-
-
 ### Feedbacks
 
 Upstream has **no** feedbacks.
 
-This module adds **Dmx channel state** (boolean style when a DMX channel equals a value), checked on ArtNet send.
+This module adds:
+
+- **DMX channel state by name** — lamp → channel selectors (like Set Value by lamp channel)
+- **DMX state by channel** — numeric DMX channel + numeric value (variables supported)
 
 ### Runtime / correctness vs upstream code
 
@@ -101,13 +97,12 @@ This module adds **Dmx channel state** (boolean style when a DMX channel equals 
 - 512-channel DMX buffer and ArtNet client send to host / universe
 - Linear fades via the transitions tick engine
 - Slow poll when no fades are running; fast tick during fades
-- Config upgrade script (`host_dd` → `host`)
 
 
 
 ### Note on dependencies
 
-Upstream currently depends on newer `@companion-module/base` / tools than this fork’s `package.json`. Runtime API used here still matches the classic connection-module pattern from generic-artnet; dependency bumps can be aligned in a later release.
+This fork uses `@companion-module/base` **~1.11.3** so action/feedback fields can use `useVariables: { local: true }` (custom + local variables), which aligns with Companion 3.5+ / 4 / 5 variable pickers. Upstream may use a different base version; bump further if you target a newer Companion API exclusively.
 
 ## License
 
